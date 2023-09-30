@@ -15,7 +15,7 @@ def nms(
         predictions (list): list of multiple prediction: [class_label, probability, x1, y1, x2, y2]. 
         threshold (float): probability threshold for which bboxes should be removed up front.
         iou_threshold (float): threshold for how much bboxes of one class are allowed to overlap, before they are removed in favor for the more probable bbox.
-        box_format (str): 
+        box_format (str): how bbox are described. midpoint/corners, if boxes (x,y,w,h) or (x1,y1,x2,y2).
 
     Returns:
         List of most likely bounding boxes.

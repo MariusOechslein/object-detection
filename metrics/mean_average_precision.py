@@ -10,13 +10,19 @@ def mean_average_precision(
         num_classes = 20
         ):
     '''
-    Calculates the mean average precision for
+    Calculates the mean average precision of predicted bboxes.
 
     Note: This implementation is only for a single iou. For complete mAP algorithm, this function needs to be called for multiple ious.
 
     Parameters:
-        pred_boxes (list): prediction of bboxes with [train_idx, class_pred, prob_score, x1, y1, x2, y2]
-        true_boxes (list): real bboxes with [train_idx, class_pred, prob_score, x1, y1, x2, y2]
+        pred_boxes (list): prediction of bboxes with [train_idx, class_pred, prob_score, x1, y1, x2, y2].
+        true_boxes (list): real bboxes with [train_idx, class_pred, prob_score, x1, y1, x2, y2].
+        iou_threshold (float): threshold under which bbox should be disregarded.
+        box_format (str): how bbox are described. midpoint/corners, if boxes (x,y,w,h) or (x1,y1,x2,y2). 
+        num_classes (int): hyperparameter for how many classes there are.
+
+    Returns: 
+        Calculated mean average precision.
     '''
 
     average_precisions = []

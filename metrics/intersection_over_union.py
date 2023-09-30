@@ -6,12 +6,12 @@ def calc_iou(boxes_preds, boxes_labels, box_format="midpoint"):
     Calculates intersection over union of two bounding boxes.
 
     Parameters:
-        boxes_preds (tensor): Predictions of Bounding Boxes (BATCH_SIZE, 4)
-        boxes_labels (tensor): Correct Labels of Boxes (BATCH_SIZE, 4)
-        box_format (str): midpoint/corners, if boxes (x,y,w,h) or (x1,y1,x2,y2)
+        boxes_preds (tensor): Predictions of Bounding Boxes (BATCH_SIZE, 4).
+        boxes_labels (tensor): Correct Labels of Boxes (BATCH_SIZE, 4).
+        box_format (str): how bbox are described. midpoint/corners, if boxes (x,y,w,h) or (x1,y1,x2,y2).
 
     Returns:
-        tensor: Intersection over union for all examples
+        tensor: Intersection over union for all examples.
     """
 
     assert torch.is_tensor(boxes_preds) and torch.is_tensor(boxes_labels) and isinstance(box_format, str)
