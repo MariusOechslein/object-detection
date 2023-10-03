@@ -139,17 +139,25 @@ def test(split_size=7, num_boxes=2, num_classes=20):
     model = Yolov1(split_size = split_size, num_boxes = num_boxes, num_classes = num_classes)
     sample_image_shape = (2, 3, 448, 448)
     x = torch.randn(sample_image_shape)
+
+    expected_prediction_shape = num_classes + num_boxes * 5
+    expected_model_output_shape = torch.Size([num_boxes, (split_size * split_size * expected_prediction_shape)])
+
     output_shape = model(x).shape
     if output_shape != torch.Size([2, 1470]):
         print("Test Failed.")
         print("Output shape:", output_shape)
-        print("Expected output shape:", torch.Size([2, 1470]))
+        print("Expected output shape:", expected_model_output_shape)
         print()
     else:
         print("Test Passed.")
+        print("Input:")
+        print("\tsplit_size =", split_size)
+        print("\tnum_boxes =", num_boxes)
+        print("\tnum_classes =", num_classes)
         print("Output shape:", output_shape)
         print()
 
-test()
+# test() # Use for sanity checking model works
 
 
