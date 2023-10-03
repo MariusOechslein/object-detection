@@ -1,0 +1,6 @@
+.DS_Store
+
+yolo_model/__pycache__/*
+yolo_model/__pycache__
+
+yolo_model/data/*
